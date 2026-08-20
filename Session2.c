@@ -1,6 +1,23 @@
 #include <stdlib.h>
 #include <stdio.h>
 
+void duplicate(int x)
+{
+    x *= 2;
+    return;
+}
+
+int duplicar2(int x)
+{
+    return x * 2;
+}
+
+void duplicateByReference(int *x)
+{
+    *x *= 2;
+    return;
+}
+
 int main()
 {
 
@@ -30,6 +47,25 @@ int main()
     myVecPointer->y = 10;
 
     printf("myVec {x: %.2f, y: %.2f}\n", myVec.x, myVec.y);
+
+    int myInt = 2;
+
+    duplicate(myInt);
+
+    printf("%d\n", myInt);
+
+    myInt = duplicar2(myInt);
+
+    printf("%d\n", myInt);
+
+    duplicateByReference(&myInt);
+
+    printf("%d\n", myInt);
+
+    int *myIntPointer = &myInt;
+    duplicateByReference(myIntPointer);
+
+    printf("%d\n", myInt);
 
     return 0;
 }
