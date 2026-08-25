@@ -12,13 +12,23 @@ void sentence(char string[][10], int R)
     {
         for (int j = 0; j < 10; j++)
         {
-            // This is one way
-            // printf("%c", string[i][j]);
 
-            // And this is another with pointers
-            printf("%c", *(*(string + i) + j));
+            // This if is an addition to stop printing invisible chars after the array ends
+            // And it directly goes to the next array
+            if (*(*(string + i) + j) == '\0')
+            {
+                // This break makes the loop stop and go to the next set of chars
+                break;
+            }
+            else
+            {
+                // This is one way
+                // printf("%c", string[i][j]);
+
+                // And this is another with pointers
+                printf("%c", *(*(string + i) + j));
+            }
         }
-
         // This is just to print each word apart
         printf("\n");
     }
